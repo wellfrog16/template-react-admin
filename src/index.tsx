@@ -7,7 +7,6 @@ import './assets/style/main.less';
 
 // moment.locale('zh-cn');
 // import * as serviceWorker from './serviceWorker';
-console.log(process.env);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

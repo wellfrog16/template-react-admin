@@ -10,7 +10,9 @@ const {
 
 module.exports = {
     webpack: override(
-        addTslintLoader(),
+        addTslintLoader({
+            emitErrors: true,
+        }),
         addWebpackPlugin(
             new StyleLintPlugin({
                 context: './src',
