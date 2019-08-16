@@ -2,7 +2,5 @@
 /public/
 /dist/
 *.js
-*.png
-*.eot
-*.ttf
-*.woff
+*.tsx
+*.ts
