@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Page1 from './page1';
-import Page2 from './page2';
+import Layout from './pages/layout';
 import Home from './pages/home';
 
 const app: React.FC = () => {
@@ -9,7 +9,7 @@ const app: React.FC = () => {
         <HashRouter>
             <Switch>
                 <Route exact={true} path="/" component={Page1}/>
-                <Route exact={true} path="/detail" component={Page2}/>
+                <Route exact={true} path="/detail" component={Layout}/>
                 <Route exact={true} path="/home" component={Home}/>
             </Switch>
         </HashRouter>

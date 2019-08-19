@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 // import 'antd/es/locale/zh_CN';
 // import moment from 'moment';
 import App from './app';
-import '@/assets/style/main.less';
+import '@/assets/style/main.scss';
 
 // moment.locale('zh-cn');
 // import * as serviceWorker from './serviceWorker';
