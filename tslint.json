@@ -12,6 +12,7 @@
     "indent": [true, "spaces", 4],
     "ordered-imports": false, // import顺序
     "import-name": [0], // import的变量名
+    "object-literal-sort-keys": false, // 排序
     "no-console": [true, "warn"]
   }
 }
