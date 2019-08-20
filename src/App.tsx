@@ -1,16 +1,15 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import Page1 from './page1';
+// import Page1 from './page1';
 import Layout from './pages/layout';
-import Home from './pages/home';
+import Login from './pages/login';
 
 const app: React.FC = () => {
     return (
         <HashRouter>
             <Switch>
-                <Route exact={true} path="/" component={Page1}/>
-                <Route exact={true} path="/detail" component={Layout}/>
-                <Route exact={true} path="/home" component={Home}/>
+                <Route path="/" component={Layout}/>
+                <Route exact={true} path="/login" component={Login}/>
             </Switch>
         </HashRouter>
     );

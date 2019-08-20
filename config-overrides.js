@@ -1,4 +1,4 @@
-const path = require('path');
+// const path = require('path');
 
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const {
@@ -8,7 +8,7 @@ const {
     fixBabelImports,
     addLessLoader,
     addWebpackExternals,
-    addWebpackAlias,
+    // addWebpackAlias,
 } = require("customize-cra");
 
 module.exports = {
@@ -22,9 +22,9 @@ module.exports = {
                 files: ['**/*.less', '**/*.s?(a|c)ss'],
             })
         ),
-        addWebpackAlias({
-            '@': path.resolve(__dirname, 'src')
-        }),
+        // addWebpackAlias({
+        //     '@': path.resolve(__dirname, './src')
+        // }),
         fixBabelImports('import', {
             libraryName: 'antd',
             libraryDirectory: 'es',
