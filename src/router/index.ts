@@ -1,5 +1,26 @@
-import { IRoute } from './index.d';
+import React from 'react';
 import Home from '@/pages/home';
+
+// 路由
+import routeUI from './modules/ui';
+import routeResearch from './modules/research';
+
+export interface IRoute {
+    name?: string;
+    path: string;
+    meta: IMeta;
+    component?: React.FunctionComponent;
+    children?: IRoute[];
+}
+
+export interface IMeta {
+    title: string;
+    icon?: string;
+    url?: string;
+    type?: 'iframe' | '';
+    belong?: string;
+    hidden?: boolean;
+}
 
 const staticRoutes:IRoute[] = [
     // {
@@ -55,7 +76,7 @@ const asyncRoutes:IRoute[] = [
         },
         children: [
             {
-                path: '/home11',
+                path: 'home11',
                 component: Home,
                 meta: {
                     title: '页面二',
@@ -63,7 +84,7 @@ const asyncRoutes:IRoute[] = [
                 },
             },
             {
-                path: '/home12',
+                path: 'home12',
                 component: Home,
                 meta: {
                     title: '页面二',
@@ -72,14 +93,8 @@ const asyncRoutes:IRoute[] = [
             },
         ],
     },
-    {
-        path: '/home2',
-        component: Home,
-        meta: {
-            title: '登入界面',
-            hidden: true,
-        },
-    },
+    routeUI,
+    routeResearch,
 ];
 
 export {

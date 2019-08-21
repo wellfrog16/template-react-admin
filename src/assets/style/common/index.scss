@@ -1,0 +1,8 @@
+// 主框架padding
+.main-wrapper {
+    padding: 20px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}

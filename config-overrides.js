@@ -1,4 +1,4 @@
-// const path = require('path');
+const path = require('path');
 
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const {
@@ -7,8 +7,8 @@ const {
     addWebpackPlugin,
     fixBabelImports,
     addLessLoader,
-    addWebpackExternals,
-    // addWebpackAlias,
+    // addWebpackExternals,
+    addWebpackAlias,
 } = require("customize-cra");
 
 module.exports = {
@@ -22,9 +22,9 @@ module.exports = {
                 files: ['**/*.less', '**/*.s?(a|c)ss'],
             })
         ),
-        // addWebpackAlias({
-        //     '@': path.resolve(__dirname, './src')
-        // }),
+        addWebpackAlias({
+            '@': path.resolve(__dirname, './src')
+        }),
         fixBabelImports('import', {
             libraryName: 'antd',
             libraryDirectory: 'es',
@@ -49,9 +49,10 @@ module.exports = {
                 // '@box-shadow-base': '0 2px 8px rgba(0, 0, 0, 0.15)', // 浮层阴影
             },
         }),
-        addWebpackExternals({
-            moment: 'moment',
-        }),
+        // addWebpackExternals({
+        //     moment: 'moment',
+        //     axios: 'axios',
+        // }),
         (config) => {
             // !!!确保这里是eslint-loader
             const loader = config.module.rules[2];
