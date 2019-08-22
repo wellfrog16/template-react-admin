@@ -1,5 +1,4 @@
 import { IRoute } from '@/router';
-import Table from '@/pages/research/table';
 
 const route:IRoute = {
     path: '/research',
@@ -9,7 +8,7 @@ const route:IRoute = {
     children: [
         {
             path: 'table',
-            component: Table,
+            component: () => import('@/pages/research/table'),
             meta: {
                 title: '基础表格和表单',
             },

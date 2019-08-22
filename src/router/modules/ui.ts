@@ -1,5 +1,4 @@
 import { IRoute } from '@/router';
-import Home from '@/pages/home';
 
 const route:IRoute = {
     path: '/ui',
@@ -15,14 +14,14 @@ const route:IRoute = {
             children: [
                 {
                     path: 'complex',
-                    component: Home,
+                    component: () => import('@/pages/home'),
                     meta: {
                         title: '综合表格',
                     },
                 },
                 {
                     path: 'lazy',
-                    component: Home,
+                    component: () => import('@/pages/home'),
                     meta: {
                         title: '滚动加载',
                     },

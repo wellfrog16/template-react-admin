@@ -1,7 +1,9 @@
 import React from 'react';
-import Home from '@/pages/home';
+// import Loadable from 'react-loadable';
 
 // 路由
+import routeHome from './modules/home';
+import routeDocument from './modules/document';
 import routeUI from './modules/ui';
 import routeResearch from './modules/research';
 
@@ -10,8 +12,20 @@ export interface IRoute {
     path: string;
     fullpath?: string;
     meta: IMeta;
-    component?: React.FunctionComponent | React.FunctionComponent<any> | React.ComponentClass | React.ComponentClass<any, any>;
     children?: IRoute[];
+    // component? () => Promise<React.ComponentClass<unknown, any> | React.FunctionComponent<unknown>
+    // | { default: ComponentType<unknown>; }>) | (() => Promise<object>;
+    component?: (
+        () => Promise<React.ComponentClass<unknown, any> |
+        React.FunctionComponent<unknown> |
+        { default: React.ComponentType<unknown>; }>) | (() => Promise<object>);
+    // component?:
+    //     React.FunctionComponent |
+    //     React.FunctionComponent<any> |
+    //     React.ComponentClass |
+    //     React.ComponentClass<any, any> |
+    //     Promise<any> |
+    //     Loadable.LoadableComponent;
 }
 
 export interface IMeta {
@@ -60,46 +74,8 @@ const asyncRoutes:IRoute[] = [
     //         title: '首页',
     //     },
     // },
-    {
-        path: '/home',
-        component: Home,
-        meta: {
-            title: '页面一',
-            hidden: true,
-        },
-    },
-    {
-        path: '/home123',
-        meta: {
-            title: '页面无',
-            hidden: true,
-        },
-    },
-    {
-        path: '/home1',
-        meta: {
-            title: '页面二',
-            hidden: true,
-        },
-        children: [
-            {
-                path: 'home11',
-                component: Home,
-                meta: {
-                    title: '页面二',
-                    hidden: true,
-                },
-            },
-            {
-                path: 'home12',
-                component: Home,
-                meta: {
-                    title: '页面二',
-                    hidden: true,
-                },
-            },
-        ],
-    },
+    routeHome,
+    routeDocument,
     routeUI,
     routeResearch,
 ];
