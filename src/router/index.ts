@@ -8,8 +8,9 @@ import routeResearch from './modules/research';
 export interface IRoute {
     name?: string;
     path: string;
+    fullpath?: string;
     meta: IMeta;
-    component?: React.FunctionComponent;
+    component?: React.FunctionComponent | React.FunctionComponent<any> | React.ComponentClass | React.ComponentClass<any, any>;
     children?: IRoute[];
 }
 
@@ -68,8 +69,14 @@ const asyncRoutes:IRoute[] = [
         },
     },
     {
+        path: '/home123',
+        meta: {
+            title: '页面无',
+            hidden: true,
+        },
+    },
+    {
         path: '/home1',
-        component: Home,
         meta: {
             title: '页面二',
             hidden: true,
@@ -97,7 +104,39 @@ const asyncRoutes:IRoute[] = [
     routeResearch,
 ];
 
+// 拍平路由
+function flattenRoutes(routes:IRoute[]):IRoute[] {
+    const allRoutes:IRoute[] = [];
+
+    function combineRoute(target:IRoute[]) {
+        target.forEach((item) => {
+            allRoutes.push(item);
+            // debugger;
+
+            if (Array.isArray(item.children) && item.children.length > 0) {
+                combineRoute(item.children);
+            }
+        });
+    }
+
+    combineRoute(routes);
+    return allRoutes;
+}
+
+function formatRoutes(routes:IRoute[], basePath:string = '') {
+    routes.forEach((item) => {
+        item.fullpath = basePath ? `${basePath}/${item.path}` : item.path;
+
+        if (Array.isArray(item.children) && item.children.length > 0) {
+            formatRoutes(item.children, item.fullpath);
+        }
+    });
+}
+
+formatRoutes(asyncRoutes);
+
 export {
     staticRoutes,
     asyncRoutes,
+    flattenRoutes,
 };

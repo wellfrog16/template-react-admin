@@ -14,6 +14,7 @@
     "import-name": [0], // import的变量名
     "object-literal-sort-keys": false, // 排序
     "no-console": [true, "warn"],
-    "max-line-length": [true, 150]
+    "max-line-length": [true, 150],
+    "array-type": [true, "array"] // 冲突？prefer-array-literal：Replace generic-typed Array with array literal
   }
 }

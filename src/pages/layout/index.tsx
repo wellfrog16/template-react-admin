@@ -1,10 +1,9 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 import style from './index.module.scss';
-import Home from '@/pages/home';
-import Aside from '@/components/menu';
 import { asyncRoutes } from '@/router';
+import Aside from '@/components/menu';
+import RouterView from './components/router-view';
 
 const { Header, Sider, Content } = Layout;
 
@@ -18,9 +17,7 @@ const com: React.FC = () => {
             <Layout>
                 <Header className={style.header}>1</Header>
                 <Content className={style.content}>
-                    <Switch>
-                        <Route path="/home" component={Home}/>
-                    </Switch>
+                    <RouterView />
                 </Content>
             </Layout>
         </Layout>
