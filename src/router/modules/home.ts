@@ -1,14 +1,15 @@
+import React from 'react';
 import { IRoute } from '@/router';
 
 const route:IRoute = {
-    path: '/home',
+    path: '',
     meta: {
         title: '主页',
     },
     children: [
         {
-            path: 'index',
-            component: () => import('@/pages/home'),
+            path: '',
+            component: React.lazy(() => import('@/pages/home')),
             meta: {
                 title: '主页',
             },

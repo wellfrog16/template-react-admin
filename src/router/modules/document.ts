@@ -1,3 +1,4 @@
+import React from 'react';
 import { IRoute } from '@/router';
 
 const route:IRoute = {
@@ -8,7 +9,7 @@ const route:IRoute = {
     children: [
         {
             path: 'index',
-            component: () => import('@/pages/document'),
+            component: React.lazy(() => import('@/pages/document')),
             meta: {
                 title: '文档',
             },

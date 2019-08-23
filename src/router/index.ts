@@ -10,7 +10,7 @@ import routeResearch from './modules/research';
 export interface IRoute {
     name?: string;
     path: string;
-    fullpath?: string;
+    fullpath?: string | 'roo';
     meta: IMeta;
     children?: IRoute[];
     // component? () => Promise<React.ComponentClass<unknown, any> | React.FunctionComponent<unknown>
@@ -18,7 +18,10 @@ export interface IRoute {
     component?: (
         () => Promise<React.ComponentClass<unknown, any> |
         React.FunctionComponent<unknown> |
-        { default: React.ComponentType<unknown>; }>) | (() => Promise<object>);
+        { default: React.ComponentType<unknown>; }>) | (() => Promise<object>) |
+        React.LazyExoticComponent<React.FunctionComponent<{}>> |
+        React.LazyExoticComponent<React.ComponentClass<any, any>> |
+        React.LazyExoticComponent<React.ComponentClass>;
     // component?:
     //     React.FunctionComponent |
     //     React.FunctionComponent<any> |
