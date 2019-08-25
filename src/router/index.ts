@@ -40,7 +40,7 @@ export interface IMeta {
     hidden?: boolean;
 }
 
-const staticRoutes:IRoute[] = [
+const staticRoutes: IRoute[] = [
     // {
     //     path: '',
     //     meta: {
@@ -70,7 +70,7 @@ const staticRoutes:IRoute[] = [
     },
 ];
 
-const asyncRoutes:IRoute[] = [
+const asyncRoutes: IRoute[] = [
     // {
     //     path: '',
     //     meta: {
@@ -84,10 +84,10 @@ const asyncRoutes:IRoute[] = [
 ];
 
 // 拍平路由
-function flattenRoutes(routes:IRoute[]):IRoute[] {
-    const allRoutes:IRoute[] = [];
+function flattenRoutes(routes: IRoute[]): IRoute[] {
+    const allRoutes: IRoute[] = [];
 
-    function combineRoute(target:IRoute[]) {
+    function combineRoute(target: IRoute[]) {
         target.forEach((item) => {
             allRoutes.push(item);
             // debugger;
@@ -102,9 +102,9 @@ function flattenRoutes(routes:IRoute[]):IRoute[] {
     return allRoutes;
 }
 
-function formatRoutes(routes:IRoute[], basePath:string = '') {
+function formatRoutes(routes: IRoute[], basePath: string = '') {
     routes.forEach((item) => {
-        item.fullpath = basePath ? `${basePath}/${item.path}` : item.path;
+        item.fullpath = basePath ? `${basePath}/${item.path}` :    item.path;
 
         if (Array.isArray(item.children) && item.children.length > 0) {
             formatRoutes(item.children, item.fullpath);

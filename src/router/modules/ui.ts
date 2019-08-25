@@ -1,7 +1,6 @@
-import React from 'react';
 import { IRoute } from '@/router';
 
-const route:IRoute = {
+const route: IRoute = {
     path: '/ui',
     meta: {
         title: '组件',
@@ -15,14 +14,14 @@ const route:IRoute = {
             children: [
                 {
                     path: 'complex',
-                    component: React.lazy(() => import('@/pages/home')),
+                    component: () => import('@/pages/home'),
                     meta: {
                         title: '综合表格',
                     },
                 },
                 {
                     path: 'lazy',
-                    component: React.lazy(() => import('@/pages/home')),
+                    component: () => import('@/pages/home'),
                     meta: {
                         title: '滚动加载',
                     },

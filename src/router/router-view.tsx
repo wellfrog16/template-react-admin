@@ -1,33 +1,31 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { asyncRoutes, flattenRoutes } from '@/router';
+import Loading from '@/components/loading';
 
 const comRoutes = flattenRoutes(asyncRoutes).filter(item => item.component);
 
-const test = ():void => {
-    console.log(911199);
-};
-
 const com: React.FC = () => {
+    const a = '11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111';
+    console.log(a);
     return (
-        <Switch>
+        <div>
             {
-                comRoutes.map((route) => {
+                comRoutes.map((route, index) => {
                     // todo 如何不转换成any，保持类型的转换并调用
-                    const { component }:any = route;
+                    const { component }: any = route;
                     return (
                         <Route
-                            exact={false}
-                            onEnter={test()}
-                            key={route.fullpath}
+                            exact={true}
+                            key={index}
                             path={route.fullpath}
-                            component={Loadable({ loader: component, loading() { return <div>Loading...</div>; } })}
+                            component={Loadable({ loader: component, loading() { return Loading({ aa: 'aaa' }); } })}
                         />
                     );
                 })
             }
-        </Switch>
+        </div>
     );
 };
 

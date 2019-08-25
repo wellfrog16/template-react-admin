@@ -33,11 +33,6 @@
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-webpack-plugin": "^0.10.5",
-    "tslint": "^5.18.0",
-    "tslint-config-airbnb": "^5.11.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-loader": "^3.5.4",
-    "tslint-react": "^4.0.0",
     "typescript": "3.5.3"
   },
   "scripts": {
@@ -46,9 +41,6 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "stylelint": "stylelint */**/*.{css,scss,sass} --fix"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [

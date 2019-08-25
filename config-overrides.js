@@ -1,9 +1,7 @@
 const path = require('path');
-
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const {
     override,
-    addTslintLoader,
     addWebpackPlugin,
     fixBabelImports,
     addLessLoader,
@@ -13,9 +11,6 @@ const {
 
 module.exports = {
     webpack: override(
-        addTslintLoader({
-            emitErrors: true,
-        }),
         addWebpackPlugin(
             new StyleLintPlugin({
                 context: './src',
@@ -55,7 +50,8 @@ module.exports = {
         // }),
         (config) => {
             // !!!确保这里是eslint-loader
-            const loader = config.module.rules[2];
+            const loader = config.module.rules[1];
+            console.log(loader);
             // !!!确保这里是eslint-loader的options
             const { options } = loader.use[0];
             options.emitError = true;
