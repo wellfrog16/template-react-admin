@@ -2,10 +2,16 @@ import React from 'react';
 // import axios, { AxiosInstance } from 'axios';
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/es/table';
-import { IUser } from '../table';
 
 export interface ITableProps {
     name: string;
+}
+
+export interface IUser {
+    key: string;
+    name: string;
+    age: number;
+    address: string;
 }
 
 class Com extends React.Component<ITableProps> {
@@ -14,14 +20,26 @@ class Com extends React.Component<ITableProps> {
     };
 
     public componentDidMount() {
-        console.log(this.state.myName);
-        console.log(this.props.name);
+        const { myName } = this.state;
+        const { name } = this.props;
+        console.log(myName);
+        console.log(name);
     }
 
     public render() {
         const dataSource: IUser[] = [
-            { key: '1', name: '胡彦斌', age: 32, address: '西湖区湖底公园1号' },
-            { key: '2', name: '胡彦祖', age: 42, address: '西湖区湖底公园1号' },
+            {
+                key: '1',
+                name: '胡彦斌',
+                age: 32,
+                address: '西湖区湖底公园1号',
+            },
+            {
+                key: '2',
+                name: '胡彦祖',
+                age: 42,
+                address: '西湖区湖底公园1号',
+            },
         ];
 
         const columns: ColumnProps<IUser>[] = [

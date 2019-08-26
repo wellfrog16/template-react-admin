@@ -8,20 +8,26 @@ const menuItem = (item: IRoute) => {
     console.log(item.fullpath);
     return (
         <Menu.Item key={fullpath}>
-            <Link to={fullpath} replace={true}><Icon type="user" />{item.meta.title}</Link>
+            <Link to={fullpath} replace>
+                <Icon type="user" />
+                {item.meta.title}
+            </Link>
         </Menu.Item>
     );
 };
 
 const subMenu = (item: IRoute) => {
     const title = (
-        <span><Icon type="user" />{item.meta.title}</span>
+        <span>
+            <Icon type="user" />
+            {item.meta.title}
+        </span>
     );
     const path: string = item.fullpath || '';
     return (
         <Menu.SubMenu key={path} title={title}>
             {
-                Array.isArray(item.children) && item.children.map((item1) => {
+                Array.isArray(item.children) && item.children.map(item1 => {
                     if (Array.isArray(item1.children) && item1.children.length > 0) {
                         return subMenu(item1);
                     }
@@ -45,7 +51,7 @@ class Com extends React.Component {
         return (
             <Menu theme="dark" mode="inline">
                 {
-                    asyncRoutes.map((item) => {
+                    asyncRoutes.map(item => {
                         if (Array.isArray(item.children)) {
                             return subMenu(item);
                         }

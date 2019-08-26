@@ -8,7 +8,8 @@ class Com extends React.Component {
     };
 
     public componentDidMount() {
-        console.log(this.state.myName);
+        const { myName } = this.state;
+        console.log(myName);
     }
 
     public render() {

@@ -18,10 +18,12 @@ export interface IRoute {
     component?: (
         () => Promise<React.ComponentClass<unknown, any> |
         React.FunctionComponent<unknown> |
-        { default: React.ComponentType<unknown>; }>) | (() => Promise<object>) |
-        React.LazyExoticComponent<React.FunctionComponent<{}>> |
-        React.LazyExoticComponent<React.ComponentClass<any, any>> |
-        React.LazyExoticComponent<React.ComponentClass>;
+        { default: React.ComponentType<unknown>; }>
+    ) |
+    (() => Promise<object>) |
+    React.LazyExoticComponent<React.FunctionComponent<{}>> |
+    React.LazyExoticComponent<React.ComponentClass<any, any>> |
+    React.LazyExoticComponent<React.ComponentClass>;
     // component?:
     //     React.FunctionComponent |
     //     React.FunctionComponent<any> |
@@ -54,29 +56,9 @@ const staticRoutes: IRoute[] = [
             hidden: true,
         },
     },
-    {
-        path: '/login',
-        meta: {
-            title: '页面二',
-            hidden: true,
-        },
-    },
-    {
-        path: '/login',
-        meta: {
-            title: '登入界面',
-            hidden: true,
-        },
-    },
 ];
 
 const asyncRoutes: IRoute[] = [
-    // {
-    //     path: '',
-    //     meta: {
-    //         title: '首页',
-    //     },
-    // },
     routeHome,
     routeDocument,
     routeUI,
@@ -88,7 +70,7 @@ function flattenRoutes(routes: IRoute[]): IRoute[] {
     const allRoutes: IRoute[] = [];
 
     function combineRoute(target: IRoute[]) {
-        target.forEach((item) => {
+        target.forEach(item => {
             allRoutes.push(item);
             // debugger;
 
@@ -103,8 +85,8 @@ function flattenRoutes(routes: IRoute[]): IRoute[] {
 }
 
 function formatRoutes(routes: IRoute[], basePath: string = '') {
-    routes.forEach((item) => {
-        item.fullpath = basePath ? `${basePath}/${item.path}` :    item.path;
+    routes.forEach(item => {
+        item.fullpath = basePath ? `${basePath}/${item.path}` : item.path;
 
         if (Array.isArray(item.children) && item.children.length > 0) {
             formatRoutes(item.children, item.fullpath);

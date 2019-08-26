@@ -51,10 +51,10 @@ module.exports = {
         (config) => {
             // !!!确保这里是eslint-loader
             const loader = config.module.rules[1];
-            console.log(loader);
             // !!!确保这里是eslint-loader的options
             const { options } = loader.use[0];
             options.emitError = true;
+            options.useEslintrc = true;
             return config;
         },
     ),

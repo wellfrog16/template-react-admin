@@ -4,20 +4,14 @@ import XTable from './components/table';
 import XSearch from './components/search';
 import XPagination from './components/pagination';
 
-export interface IUser {
-    key: string;
-    name: string;
-    age: number;
-    address: string;
-}
-
 class Com extends React.Component {
     public state = {
         myName: '父组件',
     };
 
     public componentDidMount() {
-        console.log(this.state.myName);
+        const { myName } = this.state;
+        console.log(myName);
     }
 
     public render() {

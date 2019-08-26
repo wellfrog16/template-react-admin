@@ -6,7 +6,7 @@ interface ITest {
     aa: string;
 }
 
-const com: React.FC<ITest> = (props) => {
+const com: React.FC<ITest> = props => {
     console.log(props);
     return (
         <div className="main-wrapper">

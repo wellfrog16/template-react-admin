@@ -7,18 +7,16 @@ import Login from './pages/login';
 
 // const a = React.lazy(() => import('@/pages/research/table'));
 
-const app: React.FC = () => {
-    return (
-        <HashRouter>
-            <Route path="/" component={Layout} />
+const app: React.FC = () => (
+    <HashRouter>
+        <Route path="/" component={Layout} />
 
-            {/* <Route exact={true} onEnter={test()} component={Layout}>
-                <Route exact={true} path="/layout/page2" component={Page2}/>
-                <Route exact={true} path="/layout/page1" component={Page1}/>
-            </Route> */}
-            <Route path="/login" component={Login}/>
-        </HashRouter>
-    );
-};
+        {/* <Route exact={true} onEnter={test()} component={Layout}>
+            <Route exact={true} path="/layout/page2" component={Page2}/>
+            <Route exact={true} path="/layout/page1" component={Page1}/>
+        </Route> */}
+        <Route path="/login" component={Login} />
+    </HashRouter>
+);
 
 export default app;
