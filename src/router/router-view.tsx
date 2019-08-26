@@ -20,7 +20,7 @@ const com: React.FC = () => {
                             exact
                             key={route.fullpath}
                             path={route.fullpath}
-                            component={Loadable({ loader: component, loading() { return Loading({ aa: 'aaa' }); } })}
+                            component={Loadable({ loader: component, loading: Loading })}
                         />
                     );
                 })

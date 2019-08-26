@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'nprogress/nprogress.css';
 // import 'antd/es/locale/zh_CN';
 // import moment from 'moment';
 import App from './app';
