@@ -7,39 +7,32 @@ import routeDocument from './modules/document';
 import routeUI from './modules/ui';
 import routeResearch from './modules/research';
 
+/**
+ * 路由接口
+ *
+ * @export
+ * @interface IRoute
+ */
 export interface IRoute {
-    name?: string;
-    path: string;
-    fullpath?: string | 'roo';
+    name?: string; // 名称
+    path: string; // 路径
+    fullpath?: string | ''; // 内置完整路径，由计算获得
     meta: IMeta;
-    children?: IRoute[];
-    // component? () => Promise<React.ComponentClass<unknown, any> | React.FunctionComponent<unknown>
-    // | { default: ComponentType<unknown>; }>) | (() => Promise<object>;
-    component?: (
-        () => Promise<React.ComponentClass<unknown, any> |
-        React.FunctionComponent<unknown> |
-        { default: React.ComponentType<unknown>; }>
-    ) |
-    (() => Promise<object>) |
-    React.LazyExoticComponent<React.FunctionComponent<{}>> |
+    children?: IRoute[]; // 子路由
+
+    // 组件
+    component?: React.LazyExoticComponent<React.FunctionComponent<{}>> |
     React.LazyExoticComponent<React.ComponentClass<any, any>> |
     React.LazyExoticComponent<React.ComponentClass>;
-    // component?:
-    //     React.FunctionComponent |
-    //     React.FunctionComponent<any> |
-    //     React.ComponentClass |
-    //     React.ComponentClass<any, any> |
-    //     Promise<any> |
-    //     Loadable.LoadableComponent;
 }
 
 export interface IMeta {
-    title: string;
-    icon?: string;
-    url?: string;
-    type?: 'iframe' | '';
-    belong?: string;
-    hidden?: boolean;
+    title: string; // 标题
+    icon?: string; // icon图标
+    url?: string; // 外链地址
+    type?: 'iframe' | ''; // iframe类型
+    belong?: string; // 此路由归属哪一个路由（左侧菜单高亮用）
+    hidden?: boolean; // 是否在左侧菜单中隐藏当前路由
 }
 
 const staticRoutes: IRoute[] = [
@@ -58,6 +51,7 @@ const staticRoutes: IRoute[] = [
     },
 ];
 
+// 异步路由
 const asyncRoutes: IRoute[] = [
     routeHome,
     routeDocument,
@@ -65,7 +59,7 @@ const asyncRoutes: IRoute[] = [
     routeResearch,
 ];
 
-// 拍平路由
+// 拍平路由（children）
 function flattenRoutes(routes: IRoute[]): IRoute[] {
     const allRoutes: IRoute[] = [];
 
@@ -84,6 +78,7 @@ function flattenRoutes(routes: IRoute[]): IRoute[] {
     return allRoutes;
 }
 
+// 填充fullpath
 function formatRoutes(routes: IRoute[], basePath: string = '') {
     routes.forEach(item => {
         item.fullpath = basePath ? `${basePath}/${item.path}` : item.path;
