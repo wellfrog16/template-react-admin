@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import style from './index.module.scss';
 // import Page1 from '../../page1';
 // import Page2 from '../../page2';
-// import { asyncRoutes } from '@/router';
+import { asyncRoutes } from '@/router';
 import Aside from '@/components/menu';
 import RouterView from '@/router/router-view';
 
@@ -48,10 +48,10 @@ const { Header, Sider, Content } = Layout;
 
 const com: React.FC = () => (
     <Layout className={style.main}>
-        <Sider className={style.sider}>
-            <div className={style.logo}>Logo</div>
-            <Aside />
-            {/* <Aside routes={asyncRoutes} /> */}
+        <Sider className={style.sider} width="230">
+            <div className={style.logo}>管理系统Logo</div>
+            {/* <Aside /> */}
+            <Aside routes={asyncRoutes} />
         </Sider>
         <Layout>
             <Header className={style.header}>1</Header>

@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-function axiosInstance(param?: AxiosRequestConfig) {
+function axiosInstance(param: AxiosRequestConfig = {}) {
     return axios.create(param);
 }
 

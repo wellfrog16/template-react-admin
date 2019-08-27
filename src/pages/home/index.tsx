@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios, { AxiosInstance } from 'axios';
 import { DatePicker } from 'antd';
 
 const com: React.FC = () => (

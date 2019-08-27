@@ -1,8 +1,5 @@
 import React from 'react';
 import NProgress from 'nprogress';
-// import PropTypes from 'prop-types';
-// import axios, { AxiosInstance } from 'axios';
-// import { DatePicker } from 'antd';
 
 NProgress.configure({ showSpinner: false });
 

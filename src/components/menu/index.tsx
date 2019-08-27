@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Icon } from 'antd';
-import { IRoute, asyncRoutes } from '@/router';
+import { IRoute } from '@/router';
+
+interface IMenuProps {
+    routes: IRoute[];
+}
 
 const menuItem = (item: IRoute) => {
     const fullpath: string = item.fullpath || '';
@@ -38,20 +42,17 @@ const subMenu = (item: IRoute) => {
     );
 };
 
-// interface IMenuProps {
-//     routes: IRoute[];
-// }
-
-class Com extends React.Component {
+class Com extends React.Component<IMenuProps> {
     public componentDidMount() {
         console.log(9999999);
     }
 
     public render() {
+        const { routes } = this.props;
         return (
-            <Menu theme="dark" mode="inline">
+            <Menu mode="inline">
                 {
-                    asyncRoutes.map(item => {
+                    routes.map(item => {
                         if (Array.isArray(item.children)) {
                             return subMenu(item);
                         }
@@ -62,21 +63,5 @@ class Com extends React.Component {
         );
     }
 }
-
-// const com: React.FC = () => {
-//     // const { routes } = props;
-//     return (
-//         <Menu theme="dark" mode="inline">
-//             {
-//                 asyncRoutes.map((item) => {
-//                     if (Array.isArray(item.children)) {
-//                         return subMenu(item);
-//                     }
-//                     return menuItem(item);
-//                 })
-//             }
-//         </Menu>
-//     );
-// };
 
 export default Com;
