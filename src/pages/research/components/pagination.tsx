@@ -1,8 +1,12 @@
 import React from 'react';
-// import axios, { AxiosInstance } from 'axios';
+import { connect } from 'react-redux';
 import { Pagination } from 'antd';
 
-class Com extends React.Component {
+interface IProps {
+    total: number;
+}
+
+class Com extends React.Component<IProps> {
     public state = {
         myName: 'jack',
     };
@@ -13,12 +17,20 @@ class Com extends React.Component {
     }
 
     public render() {
+        console.log(this.props, 999);
+        const { total } = this.props;
         return (
             <div>
-                <Pagination total={50} />
+                <Pagination total={total} showTotal={() => total} />
             </div>
         );
     }
 }
 
-export default Com;
+const mapStateToProps = (state: any): IProps => ({
+    total: state.test.total,
+});
+
+export default connect(
+    mapStateToProps,
+)(Com);

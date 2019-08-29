@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from '@/redux/reducer';
 import 'nprogress/nprogress.css';
 // import 'antd/es/locale/zh_CN';
 // import moment from 'moment';
@@ -7,9 +9,13 @@ import App from './app';
 import '@/assets/style/main.scss';
 
 // moment.locale('zh-cn');
-// import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root'),
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

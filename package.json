@@ -43,7 +43,8 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
-    "stylelint": "stylelint */**/*.{css,scss,sass} --fix"
+    "stylelint": "stylelint */**/*.{css,scss,sass} --fix",
+    "eslint": "eslint */**/*.ts --fix"
   },
   "browserslist": {
     "production": [

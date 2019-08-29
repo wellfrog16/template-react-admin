@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios, { AxiosInstance } from 'axios';
+import api from '@/api/mock/table';
 import XTable from './components/table';
 import XSearch from './components/search';
 import XPagination from './components/pagination';
@@ -12,6 +12,7 @@ class Com extends React.Component {
     public componentDidMount() {
         const { myName } = this.state;
         console.log(myName);
+        api.list();
     }
 
     public render() {
