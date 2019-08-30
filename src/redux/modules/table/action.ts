@@ -1,4 +1,4 @@
-import { IAction } from '../reducer/test';
+import { IAction } from './reducer';
 
 export const setTotal = (num: number): IAction => ({
     type: 'SET_TOTAL',
