@@ -23,6 +23,7 @@ const reducer = (state = initState, action: IAction): IState => {
     switch (action.type) {
         case actionTypes.SET_TOTAL: {
             const { total } = action.payload;
+            console.log(total, 222222222);
             return {
                 ...state,
                 total,

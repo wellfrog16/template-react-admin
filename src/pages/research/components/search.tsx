@@ -10,7 +10,7 @@ interface IState {
 }
 
 interface IProps {
-    setTotal: Function,
+    setTotal: (payload: object) => void,
 }
 
 interface IProps2 {
@@ -18,7 +18,7 @@ interface IProps2 {
 }
 
 interface IProps3 {
-    setTotal: Function,
+    setTotal: (payload: object) => void,
     total: number;
 }
 
@@ -45,7 +45,7 @@ class Com extends React.Component<IProps3> {
         this.setState({
             total: 1000,
         });
-        aa(10);
+        aa({ total: 10 });
         console.log(this.props);
         console.log(total);
     }
