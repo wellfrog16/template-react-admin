@@ -1,4 +1,4 @@
-import { IAction } from './reducer';
+import { IAction } from '@/redux/interface';
 
 export const setTotal = (num: number): IAction => ({
     type: 'SET_TOTAL',

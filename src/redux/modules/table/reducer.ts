@@ -1,17 +1,13 @@
 import * as actionTypes from './action-types';
+import { IAction } from '@/redux/interface';
 
 export interface IUser {
     name: string;
 }
 
-interface IState {
+export interface IState {
     total: number;
     list: IUser[];
-}
-
-export interface IAction {
-    type: string;
-    payload: any;
 }
 
 const initState: IState = {
