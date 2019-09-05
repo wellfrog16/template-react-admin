@@ -5,17 +5,18 @@ export interface IUser {
     name: string;
 }
 
-export interface IState {
+export interface ITableState {
     total: number;
     list: IUser[];
 }
 
-const initState: IState = {
+const initState: ITableState = {
     total: 1997,
     list: [],
 };
 
-const reducer = (state = initState, action: IAction): IState => {
+const reducer = (state = initState, action: IAction): ITableState => {
+    console.log(action);
     switch (action.type) {
         case actionTypes.SET_TOTAL: {
             const { total } = action.payload;
@@ -33,6 +34,7 @@ const reducer = (state = initState, action: IAction): IState => {
             };
         }
         default:
+            console.log(777777777);
             return state;
     }
 };

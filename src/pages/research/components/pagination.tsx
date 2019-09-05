@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Pagination } from 'antd';
+import { IApplicationState } from '@/redux';
 
 interface IProps {
     total: number;
@@ -27,8 +28,8 @@ class Com extends React.Component<IProps> {
     }
 }
 
-const mapStateToProps = (state: any): IProps => ({
-    total: state.test.total,
+const mapStateToProps = ({ test }: IApplicationState) => ({
+    total: test.total,
 });
 
 export default connect(

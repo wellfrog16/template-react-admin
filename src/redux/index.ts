@@ -1,5 +1,9 @@
 import { createStore, combineReducers } from 'redux';
-import test from './modules/table/reducer';
+import test, { ITableState } from './modules/table/reducer';
+
+export interface IApplicationState {
+    test: ITableState
+}
 
 export default createStore(combineReducers({
     test,
