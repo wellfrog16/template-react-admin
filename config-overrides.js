@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const {
@@ -7,7 +8,7 @@ const {
     addLessLoader,
     // addWebpackExternals,
     addWebpackAlias,
-} = require("customize-cra");
+} = require('customize-cra');
 
 module.exports = {
     webpack: override(
@@ -15,10 +16,10 @@ module.exports = {
             new StyleLintPlugin({
                 context: './src',
                 files: ['**/*.less', '**/*.s?(a|c)ss'],
-            })
+            }),
         ),
         addWebpackAlias({
-            '@': path.resolve(__dirname, './src')
+            '@': path.resolve(__dirname, './src'),
         }),
         fixBabelImports('import', {
             libraryName: 'antd',
@@ -48,7 +49,7 @@ module.exports = {
         //     moment: 'moment',
         //     axios: 'axios',
         // }),
-        (config) => {
+        config => {
             // !!!确保这里是eslint-loader
             const loader = config.module.rules[1];
             // !!!确保这里是eslint-loader的options
