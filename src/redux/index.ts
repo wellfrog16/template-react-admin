@@ -9,3 +9,6 @@ export interface IApplicationState {
 export default createStore(combineReducers({
     test,
 }), applyMiddleware(thunk));
+// export default createStore(combineReducers({
+//     test,
+// }));

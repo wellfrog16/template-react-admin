@@ -8,6 +8,8 @@ import 'nprogress/nprogress.css';
 import App from './app';
 import '@/assets/style/main.scss';
 
+console.log(store);
+
 // moment.locale('zh-cn');
 
 ReactDOM.render(

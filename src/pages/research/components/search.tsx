@@ -90,13 +90,18 @@ const mapStateToProps = ({ test }: IApplicationState) => ({
     total: test.total,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch, getState: any) => {
     console.log(99);
+    console.log(getState);
     return {
         qqq(total: number) {
+            dispatch(setTotal(9999));
+            console.log(getState);
             return new Promise<number>(resolve => {
-                dispatch(setTotal(total));
-                resolve(111000000000000000000);
+                setTimeout(() => {
+                    dispatch(setTotal(total));
+                    resolve(111000000000000000000);
+                }, 3000);
             });
         },
     };
