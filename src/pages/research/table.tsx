@@ -8,6 +8,7 @@ import { ColumnProps } from 'antd/es/table';
 import dataSource, { IUser } from './data';
 import { IApplicationState } from '@/redux';
 import { asyncSetTotal2 } from '@/redux/modules/research/table/action';
+import './test';
 
 interface IState {
     total: number;
