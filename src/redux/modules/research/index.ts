@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import table, { ITableState } from './table/reducer';
+import table from './table/reducer';
+import { ITableState } from './table/types';
 
 export interface IResearchState {
     table: ITableState

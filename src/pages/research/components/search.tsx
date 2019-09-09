@@ -89,8 +89,8 @@ class Com extends React.Component<AllProps> {
     }
 }
 
-const mapStateToProps = ({ test }: IApplicationState) => ({
-    total: test.total,
+const mapStateToProps = ({ research }: IApplicationState) => ({
+    total: research.table.total,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch, getState: any) => {

@@ -1,24 +1,47 @@
+import { Dispatch } from 'redux';
 import { IAction } from '@/redux/interface';
-import * as actionTypes from './action-types';
+import { actionType, IUser } from './types';
 
-export const setTotal = (num: number): IAction => {
-    console.log(`log=${num}`);
+export const setPageData = (total: number, list: IUser[]): IAction => {
+    console.log(9);
     return {
-        type: actionTypes.SET_TOTAL,
+        type: actionType.SET_PAGE_DATA,
         payload: {
-            total: num,
+            total,
+            list,
         },
     };
 };
 
-export const setTotal2 = (num: number): any => {
-    return (dispatch: (arg0: any) => void, getState: () => void) => {
-        const currentValue = getState();
-        console.log(getState(), '1aaaaaaaaaaaaa');
-        //分发一个任务
+export const setTotal = (total: number): IAction => {
+    console.log(9);
+    return {
+        type: actionType.SET_PAGE_DATA,
+        payload: {
+            total,
+        },
+    };
+};
+
+export const asyncSetTotal = (num: number) => {
+    console.log(num);
+    return (dispatch: Dispatch) => {
         setTimeout(() => {
-            console.log('pppppppppppppp');
-            dispatch(setTotal(9527))
+            dispatch(setTotal(9527));
         }, 5000);
-    }
+    };
+};
+
+export const asyncSetTotal2 = (num: number) => {
+    console.log(num);
+    return (dispatch: Dispatch) => {
+        console.log(9);
+        return new Promise<number>(resolve => {
+            console.log(9);
+            setTimeout(() => {
+                dispatch(setTotal(9527));
+                resolve(111000000000000000000);
+            }, 5000);
+        });
+    };
 };
