@@ -2,7 +2,7 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Button, Input } from 'antd';
-import { setTotal } from '@/redux/modules/table/action';
+import { setTotal, setTotal2 } from '@/redux/modules/table/action';
 // import api from '@/api/mock/table';
 import { IApplicationState } from '@/redux';
 
@@ -13,6 +13,7 @@ interface IState {
 
 interface IProps2 {
     qqq: (total: number) => Promise<number>,
+    setTotal2: any,
 }
 
 interface IProps {
@@ -53,7 +54,7 @@ class Com extends React.Component<AllProps> {
     // }
 
     private handleClick(): void {
-        const { qqq, total } = this.props;
+        const { qqq, total, setTotal2: tt } = this.props;
         // const { total } = this.props;
         // this.setState({
         //     total: 1000,
@@ -65,6 +66,8 @@ class Com extends React.Component<AllProps> {
         });
         console.log(this.props);
         console.log(`total=${total}`);
+        console.log(tt, 22223423424323411);
+        tt();
     }
 
     // private handleChange({ target }: any): void {
@@ -96,13 +99,16 @@ const mapDispatchToProps = (dispatch: Dispatch, getState: any) => {
     return {
         qqq(total: number) {
             dispatch(setTotal(9999));
-            console.log(getState);
+            console.log(getState, 'wwwwwwwwwwwwwwwwwwwwwwwwwwwwww');
             return new Promise<number>(resolve => {
                 setTimeout(() => {
                     dispatch(setTotal(total));
                     resolve(111000000000000000000);
                 }, 3000);
             });
+        },
+        setTotal2() {
+            dispatch(setTotal2(11));
         },
     };
 };
