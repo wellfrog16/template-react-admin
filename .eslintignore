@@ -4,3 +4,5 @@
 /public/
 /node_modules/
 /src/plugins/
+
+react-app-env.d.ts

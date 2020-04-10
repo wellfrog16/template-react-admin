@@ -1,12 +1,12 @@
 import React from 'react';
 // import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
-import style from './index.module.scss';
 // import Page1 from '../../page1';
 // import Page2 from '../../page2';
 import { asyncRoutes } from '@/router';
 import Aside from '@/components/menu';
 import RouterView from '@/router/router-view';
+import style from './index.module.scss';
 
 const { Header, Sider, Content } = Layout;
 

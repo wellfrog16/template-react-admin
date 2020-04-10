@@ -1,5 +1,5 @@
-import * as actionTypes from './action-types';
 import { IAction } from '@/redux/interface';
+import * as actionTypes from './action-types';
 
 export interface IUser {
     name: string;

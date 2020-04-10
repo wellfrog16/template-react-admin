@@ -1,5 +1,5 @@
-import { actionType, ITableState } from './types';
 import { IAction } from '@/redux/interface';
+import { actionType, ITableState } from './types';
 
 const initState: ITableState = {
     total: 1997,

@@ -5,9 +5,9 @@ import { Button, Table, Pagination } from 'antd';
 import { ColumnProps } from 'antd/es/table';
 // import api from '@/api/mock/table';
 // import XSearch from './components/search';
-import dataSource, { IUser } from './data';
 import { IApplicationState } from '@/redux';
 import { asyncSetTotal2 } from '@/redux/modules/research/table/action';
+import dataSource, { IUser } from './data';
 import './test';
 
 interface IState {
